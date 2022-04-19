@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    --main-color: rgb(94, 11, 116);
+    --secondary-color: rgb(214, 96, 247);
+    --extra-color-1: rgb(197, 22, 245);
+    --extra-color-2: rgb(102, 46, 117);
+    --extra-color-3: rgb(156, 17, 194);
+}
+
+.navbar {
+    height: 10vh;
+    padding: 0 1vw;
+    background-color: var(--main-color);
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.navbar-home {
+    grid-column: 1 / 2;
+}
+
+.navbar-options {
+    grid-column: 3 / 4;
+}
