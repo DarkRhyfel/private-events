@@ -1,24 +1,10 @@
-# README
+# Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Rails Associations Project
 
-Things you may want to cover:
+### Objectives
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Implement rails associations for an event creator.
+- Associate each model correctly to represent each relation.
+- Use active record queries to get the desired data.
+- Implement a basic website to display and capture all the data.
