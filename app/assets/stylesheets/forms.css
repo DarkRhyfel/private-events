@@ -1,3 +1,14 @@
+input {
+    font-family: 'Akshar', serif;
+}
+
+textarea {
+    font-family: 'Akshar', serif;
+    line-height: 1rem;
+    margin: 0;
+    resize: none
+}
+
 .main-form-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -29,6 +40,14 @@
     grid-template-columns: auto 1fr;
     column-gap: 0.5vw;
     align-items: center;
+}
+
+.area-field {
+    margin: 2vh 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 1vh;
 }
 
 .label-validation {

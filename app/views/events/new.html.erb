@@ -1,0 +1,27 @@
+<div class="main-form-container">
+    <div class="form-container">
+        <h2>New Event</h2>
+
+        <%= form_with model: @event do |f| %>
+            <div class="field">
+                <%= f.label :name %>
+                <%= f.text_field :name, autofocus: true %>
+            </div>
+            <div class="area-field">
+                <%= f.label :description %>
+                <%= f.text_area :description, class: 'text-area', size: '50x4' %>
+            </div>
+            <div class="field">
+                <%= f.label :location %>
+                <%= f.text_field :location %>
+            </div>
+            <div class="field">
+                <%= f.label :date %>
+                <%= f.datetime_local_field :date %>
+            </div>
+            <div class="actions">
+                <%= f.submit 'Create Event', class: 'form-submit' %>
+            </div>
+        <% end %>
+    </div>
+</div>

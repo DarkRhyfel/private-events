@@ -1,1 +1,18 @@
 <h1>Check our upcoming events</h1>
+<% if current_user.events.empty? %>
+  <div class="empty-message">There are no events at the moment.</div>
+<% else %>
+  <div class="events-container">
+    <% current_user.events.each do |event| %>
+      <div class="event-container">
+        <div class="event-title"><%= event.name %></div>
+        <div class="event-description"><%= event.description %></div>
+        <div class="event-geo">
+          <div class="event-location"><%= event.location %></div>
+          <div class="event-date"><%= event.date %></div>
+        </div>
+        <%= link_to 'Event details', event_path(event.id), class: 'event-details' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
