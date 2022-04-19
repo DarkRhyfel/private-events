@@ -7,19 +7,28 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Akshar" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <nav class="navbar">
       <div class="navbar-home">
-        <div class="navbar-title"></div>
+        <%= link_to 'Private Events', root_path, class: 'navbar-title' %>
       </div>
       <div class="navbar-options">
-        <%= button_to 'Sign In', '/', class: 'navbar-option' %>
+        <% if user_signed_in? %>
+          <%= link_to 'New Event', new_event_path, class: 'navbar-option' %>
+          <%= link_to 'View Profile', user_path(current_user.id), class: 'navbar-option' %>
+          <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'navbar-option' %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path, class: 'navbar-option' %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-option' %>
+        <% end %>
       </div>
     </nav>
-
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

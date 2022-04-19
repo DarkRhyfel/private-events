@@ -1,0 +1,53 @@
+.main-form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-container {
+    grid-column: 2 / 3;
+    padding: 2vh 2vw;
+    border: 2px solid var(--extra-color-1);
+    border-radius: 10px;
+}
+
+.form-container h2 {
+    color: var(--extra-color-2);
+}
+
+.field {
+    margin: 2vh 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1vh;
+}
+
+.check-field {
+    margin: 2vh 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.5vw;
+    align-items: center;
+}
+
+.label-validation {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1vw;
+}
+
+.actions {
+    display: grid;
+    margin: 2vh 0;
+}
+
+.form-submit {
+    padding: 1vh 0;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Akshar', serif;
+    font-size: 1rem;
+    color: white;
+}

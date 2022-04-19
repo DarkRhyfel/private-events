@@ -1,0 +1,20 @@
+<h1>Welcome <%= current_user.email %></h1>
+
+<section class="created">
+    <h2>Created Events</h2>
+    <% if current_user.events.empty? %>
+        <div class="empty-message">You have not created any event.</div>
+    <% else %>
+        <div class="events-container">
+            <% current_user.events.each do |event| %>
+                <div class="event-container">
+                    <div class="event-title"></div>
+                    <div class="event-description"></div>
+                    <div class="event-location"></div>
+                    <div class="event-date"></div>
+                    <%= link_to 'Event details', event_path(event.id), class: 'event-details' %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</section>
