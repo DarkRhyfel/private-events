@@ -74,3 +74,15 @@
     font-size: 1rem;
     font-weight: bold;
 }
+
+.event-actions {
+    width: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1vw;
+    justify-content: end;
+}
+
+.event-action {
+    color: var(--extra-color-2);
+}

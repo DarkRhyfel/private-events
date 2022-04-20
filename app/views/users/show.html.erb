@@ -15,6 +15,10 @@
                         <div class="event-date"><%= event.date %></div>
                     </div>
                     <%= link_to 'Event details', event_path(event.id), class: 'event-details' %>
+                    <div class="event-actions">
+                        <%= link_to 'Edit Event', edit_event_path, method: :patch, class: 'event-action' %>
+                        <%= link_to 'Delete Event', event_path, class: 'event-action', data: { turbo_method: :delete } %>
+                    </div>
                 </div>
             <% end %>
         </div>
