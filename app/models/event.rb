@@ -7,11 +7,7 @@ class Event < ApplicationRecord
                           class_name: 'User', foreign_key: 'attended_event_id', association_foreign_key: 'attendee_id',
                           join_table: 'attended_events_attendees'
 
-  def self.past
-    where('date <= ?', Time.now)
-  end
-
-  def self.future
-    where('date > ?', Time.now)
-  end
+  # Scopes
+  scope :past, -> { where('date <= ?', Time.now) }
+  scope :future, -> { where('date > ?', Time.now) }
 end
