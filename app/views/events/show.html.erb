@@ -15,4 +15,19 @@
             <div><%= @event.date %></div>
         </div>
     </div>
+
+    <% if user_signed_in? && @event.creator_id == current_user.id %>
+        <div class="event-attendees">
+            <h2>Attendees</h2>
+            <% if @event.attendees.empty? %>
+                <div class="no-attendees">There are no attendees yet.</div>
+            <% else %>
+                <ul>
+                    <% @event.attendees.each do |attendee| %>
+                        <li class="event-attendee"> <%= attendee.email %> </li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </div>
+    <% end %>
 </div>
