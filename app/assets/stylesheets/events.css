@@ -27,6 +27,7 @@
 .events-container {
     display: grid;
     grid-template-columns: 1fr;
+    row-gap: 1vh;
 }
 
 .event-container {

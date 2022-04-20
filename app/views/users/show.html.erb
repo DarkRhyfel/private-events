@@ -20,3 +20,37 @@
         </div>
     <% end %>
 </section>
+
+<section class="attended">
+    <h2>Attended Events</h2>
+    <% if current_user.attended_events.empty? %>
+        <div class="empty-message">You have not attended any event.</div>
+    <% else %>
+        <h3>Past Events</h3>
+        <div class="events-container">
+            <% current_user.attended_events.where('date <= ?', Time.now).each do |event| %>
+                <div class="event-container">
+                    <%= link_to event.name, event_path(event.id), class: 'event-title' %>
+                    <div class="event-description"><%= event.description %></div>
+                    <div class="event-geo">
+                        <div class="event-location"><%= event.location %></div>
+                        <div class="event-date"><%= event.date %></div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <h3>Future Events</h3>
+        <div class="events-container">
+            <% current_user.attended_events.where('date > ?', Time.now).each do |event| %>
+                <div class="event-container">
+                    <%= link_to event.name, event_path(event.id), class: 'event-title' %>
+                    <div class="event-description"><%= event.description %></div>
+                    <div class="event-geo">
+                        <div class="event-location"><%= event.location %></div>
+                        <div class="event-date"><%= event.date %></div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</section>
