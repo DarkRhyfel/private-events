@@ -4,6 +4,8 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+
+    @events = @events.where('creator_id != ?', current_user.id) if user_signed_in?
   end
 
   def new
