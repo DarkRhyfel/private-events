@@ -6,4 +6,12 @@ class Event < ApplicationRecord
   has_and_belongs_to_many :attendees,
                           class_name: 'User', foreign_key: 'attended_event_id', association_foreign_key: 'attendee_id',
                           join_table: 'attended_events_attendees'
+
+  def self.past
+    where('date <= ?', Time.now)
+  end
+
+  def self.future
+    where('date > ?', Time.now)
+  end
 end

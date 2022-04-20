@@ -2,8 +2,25 @@
 <% if @events.empty? %>
   <div class="empty-message">There are no events at the moment.</div>
 <% else %>
+  <h3>Past Events</h3>
   <div class="events-container">
-    <% @events.each do |event| %>
+    <% @events.past.each do |event| %>
+      <div class="event-container">
+        <%= link_to event.name, event_path(event.id), class: 'event-title' %>
+        <div class="event-description"><%= event.description %></div>
+        <div class="event-geo">
+          <div class="event-location"><%= event.location %></div>
+          <div class="event-date"><%= event.date %></div>
+        </div>
+        <% if user_signed_in? %>
+          <%= button_to 'Attend event', attend_events_path, class: 'event-option', form_class: 'event-option-form', params: { event: event.id }  %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <h3>Future Events</h3>
+  <div class="events-container">
+    <% @events.future.each do |event| %>
       <div class="event-container">
         <%= link_to event.name, event_path(event.id), class: 'event-title' %>
         <div class="event-description"><%= event.description %></div>
